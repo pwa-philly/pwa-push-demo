@@ -120,6 +120,7 @@ function configureSubscription() {
     });
 }
 
+// Initialize subscription request
 configureSubscription();
 
 
@@ -186,6 +187,8 @@ configureSubscription();
 // });
 
 
+// Create a test notification on click
+// -----------------------------------
 if ('Notification' in window) {
 
   var button = document.getElementById('test-notif-button');
@@ -193,6 +196,9 @@ if ('Notification' in window) {
 
 }
 
+
+// Display a test notification
+// ---------------------------
 function displayTestNotification() {
 
   // From service worker.
