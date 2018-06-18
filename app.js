@@ -58,9 +58,6 @@ function configureSubscription() {
   // Hold for a future registration object
   var reg;
 
-  // Test to see if
-  var subExists = false;
-
   // When the service worker is ready, attempt to create a subscription
   navigator.serviceWorker.ready
 
@@ -90,7 +87,6 @@ function configureSubscription() {
     //   } else {
 
     //     // We have a subscription
-    //     subExists = true;
     //     // console.log('Existing subscription:', sub);
 
     //     return sub;
@@ -190,7 +186,47 @@ configureSubscription();
 // });
 
 
+if ('Notification' in window) {
 
+  var button = document.getElementById('test-notif-button');
+  button.addEventListener('click', displayTestNotification);
+
+}
+
+function displayTestNotification() {
+
+  // From service worker.
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.ready
+      .then(function (swreg) {
+
+        // Notification
+        var options = {
+          body: 'Meesa Sith Lord whole time',
+          icon: 'http://icons.iconarchive.com/icons/jonathan-rey/star-wars-characters/256/Jar-Jar-Binks-icon.png',
+          image: '',
+          dir: 'ltr',
+          lang: 'en-US', // BCP 47
+          vibrate: [100, 50, 200], // vibrate, pause, vibrate
+          badge: 'http://icons.iconarchive.com/icons/jonathan-rey/star-wars-characters/256/Jar-Jar-Binks-icon.png',
+          tag: 'confirm-notification', // Like an ID - so you can update it later.
+          renotify: true, // true will realert and vibrate, etc.
+          actions: [
+            {
+              action: 'confirm',
+              title: 'Confirm',
+            },
+            {
+              action: 'cancel',
+              title: 'Cancel',
+            }
+          ]
+        };
+        console.log(options);
+        swreg.showNotification('Surprise!', options);
+      });
+  }
+}
 
 
 // Encode a Vapid key to Uint8Array

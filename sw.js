@@ -1,8 +1,8 @@
 const rootPath = ''; // Path to assets
-const currentCache = 'v4';
+const currentCache = 'v1';
 
-// Push Event
-// ----------
+// // Push Event
+// // ----------
 // self.addEventListener('push', function (event) {
 
 //   var data = {};
@@ -28,8 +28,8 @@ const currentCache = 'v4';
 
 
 
-// On notification click
-// ---------------------
+// // On notification click
+// // ---------------------
 // self.addEventListener('notificationclick', function (event) {
 //   var notification = event.notification;
 //   var action = event.action;
@@ -41,8 +41,8 @@ const currentCache = 'v4';
 
 
 
-// On notification close
-// ---------------------
+// // On notification close
+// // ---------------------
 // self.addEventListener('notificationclose', function (event) {
 //   // Do Stuff
 //   // update analytics data.
